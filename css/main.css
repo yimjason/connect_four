@@ -1,0 +1,123 @@
+h1{
+	font-size: 40px;
+	font-family: garamond;
+	text-align: center;
+	margin: 30px;
+}
+
+h2{ 
+	padding: 20px;
+}
+
+table{  
+	margin: 0 auto; 
+	border-spacing: 2.5px;
+  border-collapse: separate;
+  background-color: yellow;
+}
+
+table, td{
+	border: 1px solid black; 
+}
+
+thead{
+	background-color: blue;
+}
+
+td{
+	height: 40px;
+	width: 40px;  
+	background-color: white;
+	padding: 0;
+}
+
+#message{
+	/*display: none;*/
+}
+
+.buttons{
+	background-color: white;
+	border: none;
+}
+
+.buttons td{
+	border: none;
+}
+  
+
+.arrow-down{  
+	margin: 0 auto;
+	width: 0; 
+	height: 0;  
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent; 
+	border-top: 10px solid green;
+}
+
+.chip{
+	height: 38px;
+	width: 38px; 
+	border-radius: 50%;
+	border: 2px solid black;  
+}
+
+.red{
+	background-color: red; 
+}
+
+.black{
+	background-color: #222;  
+}
+
+footer{  
+	font-family: garamond;
+	font-weight: bold;
+	padding: 5px 0 5px 20px;
+}
+
+
+ 
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	h1{font-size: 30px;}
+	table{ border-spacing: 5px; }
+	td{
+		height: 60px;
+		width: 60px;   
+	}
+	.chip{
+		height: 58px;
+		width: 58px;  
+		border: 2px solid black;  
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	h1{font-size: 45px;}
+	table{ border-spacing: 7.5px; }
+	td{
+		height: 80px;
+		width: 80px; 
+	}
+	.chip{
+		height: 78px;
+		width: 78px;  
+		border: 2px solid black;  
+	}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	h1{font-size: 55px;}
+	table{ border-spacing: 10px; }
+	td{
+		height: 100px;
+		width: 100px;   
+	}
+	.chip{
+		height: 98px;
+		width: 98px;
+		border: 2px solid black;    
+	}
+}
