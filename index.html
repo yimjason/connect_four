@@ -195,7 +195,7 @@
 	 			[slot_1[0], slot_2[1], slot_3[2], slot_4[3], slot_5[4], slot_6[5]],
 	 			[slot_2[0], slot_3[1], slot_4[2], slot_5[3], slot_6[4]],
 	 			[slot_3[0], slot_4[1], slot_5[2], slot_6[3]] 
-	 		]
+	 		] 
 	 		if(data_cruncher(grid, player) || data_cruncher(horizontal_grid, player) || data_cruncher(diagonal_grid_1, player) || data_cruncher(diagonal_grid_2, player)){
 	 			return true;
 	 		} 
@@ -205,18 +205,19 @@
 	 	} 
 
 	 	function data_cruncher(two_dimentional_array, player){
-	 		var connect_four = 0;
+	 		var connect_four = 0; 
 	 		for(var slot = 0; slot < two_dimentional_array.length; slot++){ 
+	 			connect_four = 0;
 	 			for(var row = 0; row < two_dimentional_array[slot].length; row++){
 		 			if(two_dimentional_array[slot][row] != player){
-		 				connect_four = 0;
+		 				connect_four = 0; 
 		 			}
 		 			else if(two_dimentional_array[slot][row] == player){ 
-		 				connect_four++;
-		 				if(connect_four >= 4){
+		 				connect_four++; 
+		 				if(connect_four >= 4){ 
 		 					return true;
 		 				} 
-		 			}
+		 			} 
 		 		}
 	 		}
 	 		return false;
@@ -243,7 +244,7 @@
 			} 
 			if(turn > 42){ 
 				document.getElementById('turn').innerHTML = "Out Of Chips";
-				document.getElementById('message').innerHTML = "TIE!";
+				document.getElementById('message').innerHTML = "TIE!<br><button onclick='reset()'>reset</button>";
 			}
 		}
 
