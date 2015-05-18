@@ -65,7 +65,7 @@ nav ul ul{
 
 nav ul li ul li{
 	position: relative;
-	z-index: 100;
+	z-index: 50;
 	margin: 0;
 }
 
@@ -74,6 +74,11 @@ nav ul li ul li{
 	font-family: garamond;
 	font-weight: bold;
 	text-align: center;
+	position: relative;
+	z-index: 100;
+	bottom: 250px; 
+	background-color: white;
+	border: 1px solid black;
 	display: none;
 }  
 .reset{
@@ -154,6 +159,9 @@ footer h5{
 		width: 58px;  
 		border: 2px solid black;  
 	} 
+	#message{
+		bottom: 350px;
+	}
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -173,6 +181,9 @@ footer h5{
 		width: 78px;  
 		border: 2px solid black;  
 	} 
+	#message{
+		bottom: 430px;  
+	}
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -192,4 +203,7 @@ footer h5{
 		width: 98px;
 		border: 2px solid black;    
 	}  
+	#message{
+		bottom: 510px;  
+	}
 }
