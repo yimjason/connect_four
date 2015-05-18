@@ -16,18 +16,18 @@
 		<div class="col-lg-2 col-md-2 col-sm-0 col-xs-0">
 			<nav>
 			<ul>
-				<li id="local_play" onclick="two_players()" focus="true">
+				<li id="local_play" onclick="two_players()">
 					Local Play
 				</li>
-				<li id="bots">
+				<li id="bots" onclick="open_bot_list()">
 					Versus Bots
-					<ul>
+				</li>
+				<ul id="bots_list">
 						<li id="random_bot" onclick="random_ai_bot()">Random AI</li>
 						<li>Simpleton</li>
 						<li>Thinker</li>
 						<li>Master</li>
 					</ul>
-				</li>
 			</ul>
 		</nav>
 		</div>
@@ -131,19 +131,26 @@
  		var random_ai = false;
 		document.getElementById("board").style.cursor = "url(images/red_chip.png) 16 16, auto";
 
+		function open_bot_list(){
+			document.getElementById("bots_list").style.display = "block";
+		}
+
 		function two_players(){
 			document.getElementById("local_play").style.background = "gold";
 			document.getElementById("bots").style.background = "#5959FF";
 			document.getElementById("random_bot").style.background = "#5959FF";
 			local_play = true;
 			random_ai = false; 
+			document.getElementById("bots_list").style.display = "none";
 		}
-		function random_ai_bot(){
+		
+		function random_ai_bot(){ 
 			document.getElementById("bots").style.background = "gold";
 			document.getElementById("random_bot").style.background = "gold";
 			document.getElementById("local_play").style.background = "#5959FF";
 			random_ai = true;
 			local_play = false; 
+			document.getElementById("bots_list").style.display = "none";
 		}
 
  		function reset(){

@@ -6,6 +6,7 @@
   -ms-user-select: none;
   user-select: none; 
 }
+
 body{
 	font-family: garamond;
 }
@@ -15,6 +16,7 @@ h1{
 	font-weight: bold;
 	font-family: garamond;
 	text-align: center; 
+	cursor: default;
 }
 
 h2{ 
@@ -57,17 +59,14 @@ nav ul li:hover{
 	background-color: #99CCFF;
 }
 
-nav ul li ul{
+nav ul ul{
 	display: none;
-}
-
-nav ul li:hover ul {
-	display: block; 
-}
+} 
 
 nav ul li ul li{
 	position: relative;
 	z-index: 100;
+	margin: 0;
 }
 
 #message{    
