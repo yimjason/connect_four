@@ -6,13 +6,15 @@
   -ms-user-select: none;
   user-select: none; 
 }
+body{
+	font-family: garamond;
+}
 
-h1{
+h1{  
 	font-size: 40px;
 	font-weight: bold;
 	font-family: garamond;
-	text-align: center;
-	margin: 30px;
+	text-align: center; 
 }
 
 h2{ 
@@ -32,6 +34,40 @@ td{
 	width: 40px;  
 	background-color: #F7E134;
 	padding: 0;
+} 
+
+nav ul{ 
+	padding: 0;
+	color: white;
+	cursor: pointer;
+}
+
+nav ul li{ 
+	text-align: center;
+	background-color: #5959FF;
+	display: block;
+	vertical-align: top;
+	border: 1px solid black;
+	padding: 5px;
+	height: 30px;
+	margin: 2px;
+} 
+
+nav ul li:hover{
+	background-color: #99CCFF;
+}
+
+nav ul li ul{
+	display: none;
+}
+
+nav ul li:hover ul {
+	display: block; 
+}
+
+nav ul li ul li{
+	position: relative;
+	z-index: 100;
 }
 
 #message{    
@@ -42,16 +78,16 @@ td{
 	display: none;
 }  
 .reset{
-	background-color: #3399FF;
-	color: #222;
+	background-color: #5959FF;
+	color: white;
 	width: 100px;
 	padding:5px;
 	border-radius: 5px;
 	margin: 0 auto;
+	cursor: pointer;
 } 
 .reset:hover{
 	background-color: #99CCFF;
-	color: white;
 }
 
 .chip{

@@ -9,12 +9,29 @@
 	<link rel="stylesheet" href="css/main.css"> 
 </head>
 <body class="container-fluid">  
-	<header class="row"><h1>Connect Four</h1></header> 
+	<header class="row">
+		<h1>Connect Four</h1>
+	</header> 
 	<div class="row">
-		<div class="col-lg-2 col-md-2 col-sm-0 col-xs-0">  
-			
+		<div class="col-lg-2 col-md-2 col-sm-0 col-xs-0">
+			<nav>
+			<ul>
+				<li id="local_play" onclick="two_players()" focus="true">
+					Local Play
+				</li>
+				<li id="bots">
+					Versus Bots
+					<ul>
+						<li id="random_bot" onclick="random_ai_bot()">Random AI</li>
+						<li>Simpleton</li>
+						<li>Thinker</li>
+						<li>Master</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 		</div>
-		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"> 
+		<div id="board" class="col-lg-8 col-md-8 col-sm-12 col-xs-12"> 
 			<table id="buttons">
 				<thead></thead>
 				<tbody>
@@ -109,8 +126,25 @@
 		var players = ["R", "B"]; 
  		var current_player = players[0];
  		var turn = 1;
- 		var select_all = document.querySelector("*"); 
-		select_all.style.cursor = "url(images/red_chip.png) 16 16, auto";
+ 		var local_play = true;
+ 		document.getElementById("local_play").style.background = "gold";
+ 		var random_ai = false;
+		document.getElementById("board").style.cursor = "url(images/red_chip.png) 16 16, auto";
+
+		function two_players(){
+			document.getElementById("local_play").style.background = "gold";
+			document.getElementById("bots").style.background = "#5959FF";
+			document.getElementById("random_bot").style.background = "#5959FF";
+			local_play = true;
+			random_ai = false; 
+		}
+		function random_ai_bot(){
+			document.getElementById("bots").style.background = "gold";
+			document.getElementById("random_bot").style.background = "gold";
+			document.getElementById("local_play").style.background = "#5959FF";
+			random_ai = true;
+			local_play = false; 
+		}
 
  		function reset(){
  			slot_0 = ['','','','','','']; 
@@ -125,22 +159,53 @@
 			players = ["R", "B"]; 
 	 		current_player = players[0];
 	 		turn = 1;
-	 		select_all.style.cursor = "url(images/red_chip.png) 16 16, auto";
+	 		document.getElementById("board").style.cursor = "url(images/red_chip.png) 16 16, auto";
 	 		document.getElementById('message').innerHTML = "";
 	 		document.getElementById('message').style.display = "none"; 
 	 		document.getElementById('slots').innerHTML = "<tbody><tr><td id='slot0_row0'><div class='white chip'></div></td><td id='slot1_row0'><div class='white chip'></div></td><td id='slot2_row0'><div class='white chip'></div></td><td id='slot3_row0'><div class='white chip'></div></td><td id='slot4_row0'><div class='white chip'></div></td><td id='slot5_row0'><div class='white chip'></div></td><td id='slot6_row0'><div class='white chip'></div></td></tr><tr><td id='slot0_row1'><div class='white chip'></div></td><td id='slot1_row1'><div class='white chip'></div></td><td id='slot2_row1'><div class='white chip'></div></td><td id='slot3_row1'><div class='white chip'></div></td><td id='slot4_row1'><div class='white chip'></div></td><td id='slot5_row1'><div class='white chip'></div></td><td id='slot6_row1'><div class='white chip'></div></td></tr><tr><td id='slot0_row2'><div class='white chip'></div></td><td id='slot1_row2'><div class='white chip'></div></td><td id='slot2_row2'><div class='white chip'></div></td><td id='slot3_row2'><div class='white chip'></div></td><td id='slot4_row2'><div class='white chip'></div></td><td id='slot5_row2'><div class='white chip'></div></td><td id='slot6_row2'><div class='white chip'></div></td></tr><tr><td id='slot0_row3'><div class='white chip'></div></td><td id='slot1_row3'><div class='white chip'></div></td><td id='slot2_row3'><div class='white chip'></div></td><td id='slot3_row3'><div class='white chip'></div></td><td id='slot4_row3'><div class='white chip'></div></td><td id='slot5_row3'><div class='white chip'></div></td><td id='slot6_row3'><div class='white chip'></div></td></tr><tr><td id='slot0_row4'><div class='white chip'></div></td><td id='slot1_row4'><div class='white chip'></div></td><td id='slot2_row4'><div class='white chip'></div></td><td id='slot3_row4'><div class='white chip'></div></td><td id='slot4_row4'><div class='white chip'></div></td><td id='slot5_row4'><div class='white chip'></div></td><td id='slot6_row4'><div class='white chip'></div></td></tr><tr><td id='slot0_row5'><div class='white chip'></div></td><td id='slot1_row5'><div class='white chip'></div></td><td id='slot2_row5'><div class='white chip'></div></td><td id='slot3_row5'><div class='white chip'></div></td><td id='slot4_row5'><div class='white chip'></div></td><td id='slot5_row5'><div class='white chip'></div></td><td id='slot6_row5'><div class='white chip'></div></td></tr></tbody>";
-	 		var buttons = document.getElementsByClassName('insert'); 
-	 		for(var button = 0; button < buttons.length; button++){
-	 			buttons[button].style.pointerEvents = 'auto';
-	 		} 
+	 		enable_insert();
+	 		two_players();
  		}
  
 		function insert (slot_number) { 
+			disable_insert();
 			for(var row_number = COLUMN_LENGTH; row_number > -1; row_number--){
 				if(grid[slot_number][row_number] == ''){
 					grid[slot_number][row_number] = current_player;
 					var location = "slot" + slot_number + "_row" + row_number;  
 
+					display_chip(current_player, location);
+					if(turn > 6){
+						if(check_win_condition(current_player)){
+							random_ai = false;
+							local_play = false;
+							wins(current_player); 
+						}
+					} 
+					if(random_ai){
+						setTimeout(function() {
+							next(current_player); 
+							random_move();
+							enable_insert();
+						}, 200);	
+					}
+					else if(local_play){ 
+						setTimeout(function() {
+							next(current_player);   
+							enable_insert();
+						}, 100);
+					}
+					break;
+				}
+			}  
+		}  
+
+		function random_move(){
+			var random_slot = Math.floor(Math.random()*7); 
+			for(var row_number = COLUMN_LENGTH; row_number > -1; row_number--){
+				if(grid[random_slot][row_number] == ''){
+					grid[random_slot][row_number] = current_player;
+					var location = "slot" + random_slot + "_row" + row_number;  
 					display_chip(current_player, location);
 					if(turn > 6){
 						if(check_win_condition(current_player)){
@@ -150,8 +215,8 @@
 					next(current_player);   
 					break;
 				}
-			}  
-		}  
+			}
+		}
 
 		function check_win_condition(player) { 
 			var horizontal_grid = [ 
@@ -219,11 +284,11 @@
 			turn++; 
 			if(player == 'R'){
 				current_player = players[1];  
-				select_all.style.cursor = "url(images/black_chip.png) 16 16, auto";
+				document.getElementById("board").style.cursor = "url(images/black_chip.png) 16 16, auto";
 			}
 			else if(player == 'B'){
 				current_player = players[0];   
-				select_all.style.cursor = "url(images/red_chip.png) 16 16, auto";
+				document.getElementById("board").style.cursor = "url(images/red_chip.png) 16 16, auto";
 			} 
 			if(turn > 42){  
 				document.getElementById('message').innerHTML = "TIE!<br><button onclick='reset()'>reset</button>";
@@ -237,12 +302,23 @@
 			}
 			else if(player == 'B'){
 				document.getElementById('message').innerHTML = "BLACK WINS!!<br><br><div class='reset' onclick='reset()'>reset</div>"; 
-			}  
+			} 
+			disable_insert(); 
+		} 
+
+		function enable_insert(){
+ 			var buttons = document.getElementsByClassName('insert'); 
+	 		for(var button = 0; button < buttons.length; button++){
+	 			buttons[button].style.pointerEvents = 'auto';
+	 		} 
+ 		}
+
+		function disable_insert(){
 			var buttons = document.getElementsByClassName('insert');  
 	 		for(var button = 0; button < buttons.length; button++){
 	 			buttons[button].style.pointerEvents = 'none';
 	 		} 
-		} 
+		}
 	</script>
 </body>
 </html>
