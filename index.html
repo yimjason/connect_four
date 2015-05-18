@@ -175,7 +175,9 @@
  		}
  
 		function insert (slot_number) { 
-			disable_insert();
+			if(!slot_filled(slot_number)){
+				disable_insert();
+			}
 			for(var row_number = COLUMN_LENGTH; row_number > -1; row_number--){
 				if(grid[slot_number][row_number] == ''){
 					grid[slot_number][row_number] = current_player;
@@ -209,6 +211,9 @@
 
 		function random_move(){
 			var random_slot = Math.floor(Math.random()*7); 
+			if(slot_filled(random_slot)){
+				random_move();
+			}
 			for(var row_number = COLUMN_LENGTH; row_number > -1; row_number--){
 				if(grid[random_slot][row_number] == ''){
 					grid[random_slot][row_number] = current_player;
@@ -222,6 +227,14 @@
 					next(current_player);   
 					break;
 				}
+			}
+		}
+
+		function slot_filled(slot){
+			if(grid[slot][0] != ''){
+				return true;
+			}else{
+				return false;
 			}
 		}
 
