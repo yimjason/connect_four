@@ -9,10 +9,11 @@
 
 body{
 	font-family: garamond;
+	font-weight: bold;
 }
 
 h1{  
-	font-size: 40px;
+	font-size: 25px;
 	font-weight: bold;
 	font-family: garamond;
 	text-align: center; 
@@ -45,9 +46,10 @@ nav ul{
 }
 
 nav ul li{ 
+	width: 47%;
 	text-align: center;
 	background-color: #5959FF;
-	display: block;
+	display: inline-block;
 	vertical-align: top;
 	border: 1px solid black;
 	padding: 5px;
@@ -66,7 +68,7 @@ nav ul ul{
 nav ul li ul li{
 	position: relative;
 	z-index: 50;
-	margin: 0;
+	margin: 0; 
 }
 
 #message{    
@@ -184,6 +186,10 @@ footer h5{
 	#message{
 		bottom: 430px;  
 	}
+	nav ul li{ 
+		width: 100%; 
+		display: block; 
+	} 
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -204,6 +210,6 @@ footer h5{
 		border: 2px solid black;    
 	}  
 	#message{
-		bottom: 510px;  
+		bottom: 0px;  
 	}
 }
