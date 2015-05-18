@@ -1,5 +1,6 @@
 h1{
 	font-size: 40px;
+	font-weight: bold;
 	font-family: garamond;
 	text-align: center;
 	margin: 30px;
@@ -16,8 +17,8 @@ table{
   background-color: yellow;
 }
 
-table, td{
-	border: 1px solid black; 
+table{
+	border: 2px solid black; 
 }
 
 thead{
@@ -27,7 +28,7 @@ thead{
 td{
 	height: 40px;
 	width: 40px;  
-	background-color: white;
+	background-color: yellow;
 	padding: 0;
 }
 
@@ -39,12 +40,7 @@ td{
 	background-color: white;
 	border: none;
 }
-
-.buttons td{
-	border: none;
-}
   
-
 .arrow-down{  
 	margin: 0 auto;
 	width: 0; 
@@ -68,6 +64,22 @@ td{
 .black{
 	background-color: #222;  
 }
+
+.white{
+	background-color: white;
+}
+
+.insert{
+	background-color: #BAE8FF; 
+	border-radius: 5px;
+	height: 50px; 
+
+}
+
+.insert:hover{
+	background-color: #75D1FF; 
+}
+
 
 footer{  
 	font-family: garamond;
