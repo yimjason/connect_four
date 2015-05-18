@@ -11,21 +11,21 @@
 <body class="container-fluid">  
 	<header class="row"><h1>Connect Four</h1></header> 
 	<div class="row">
-		<section class="col-lg-2 col-md-2 col-sm-1 col-xs-0">  
-			<h2 id="message"></h2>
-		</section>
-		<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12"> 
-			<table class="buttons">
+		<div class="col-lg-2 col-md-2 col-sm-0 col-xs-0">  
+			
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"> 
+			<table id="buttons">
 				<thead></thead>
 				<tbody>
 					<tr>
-						<td class="insert" onclick="insert(0)"></td>
-						<td class="insert" onclick="insert(1)"></td>
-						<td class="insert" onclick="insert(2)"></td>
-						<td class="insert" onclick="insert(3)"></td>
-						<td class="insert" onclick="insert(4)"></td>
-						<td class="insert" onclick="insert(5)"></td>
-						<td class="insert" onclick="insert(6)"></td>
+						<td><div onclick="insert(0)" class="insert"></div></td>
+						<td><div onclick="insert(1)" class="insert"></div></td>
+						<td><div onclick="insert(2)" class="insert"></div></td>
+						<td><div onclick="insert(3)" class="insert"></div></td>
+						<td><div onclick="insert(4)" class="insert"></div></td>
+						<td><div onclick="insert(5)" class="insert"></div></td>
+						<td><div onclick="insert(6)" class="insert"></div></td>
 					</tr>
 				</tbody>
 			</table>
@@ -87,18 +87,14 @@
 						<td id="slot6_row5"><div class="white chip"></div></td>
 					</tr>
 				</tbody>
-			</table>
+			</table> 
+			<footer class="row"><h5>&copy; 2015 Jason Yim</h5></footer> 
 		</div>
-		<div class="col-lg-2 col-md-2 col-sm-1 col-xs-0">
-			<h2 id="turn">
-				Turn 1
-				<br> 
-				<br>
-				<div class='red chip'></div>
-			</h2>
-		</div>
+		<section class="col-lg-2 col-md-2 col-sm-0 col-xs-0"> 
+			<h2 id="message"></h2>
+		</section>
 	</div> 
-	<footer class="row">&copy; 2015 Jason Yim</footer> 
+	
 
 	<script>
 		var slot_0 = ['','','','','','']; 
@@ -131,12 +127,12 @@
 	 		turn = 1;
 	 		select_all.style.cursor = "url(images/red_chip.png) 16 16, auto";
 	 		document.getElementById('message').innerHTML = "";
-	 		document.getElementById('turn').innerHTML = "Turn "+turn+"<br><br><div class='red chip'></div>";
+	 		document.getElementById('message').style.display = "none"; 
 	 		document.getElementById('slots').innerHTML = "<tbody><tr><td id='slot0_row0'><div class='white chip'></div></td><td id='slot1_row0'><div class='white chip'></div></td><td id='slot2_row0'><div class='white chip'></div></td><td id='slot3_row0'><div class='white chip'></div></td><td id='slot4_row0'><div class='white chip'></div></td><td id='slot5_row0'><div class='white chip'></div></td><td id='slot6_row0'><div class='white chip'></div></td></tr><tr><td id='slot0_row1'><div class='white chip'></div></td><td id='slot1_row1'><div class='white chip'></div></td><td id='slot2_row1'><div class='white chip'></div></td><td id='slot3_row1'><div class='white chip'></div></td><td id='slot4_row1'><div class='white chip'></div></td><td id='slot5_row1'><div class='white chip'></div></td><td id='slot6_row1'><div class='white chip'></div></td></tr><tr><td id='slot0_row2'><div class='white chip'></div></td><td id='slot1_row2'><div class='white chip'></div></td><td id='slot2_row2'><div class='white chip'></div></td><td id='slot3_row2'><div class='white chip'></div></td><td id='slot4_row2'><div class='white chip'></div></td><td id='slot5_row2'><div class='white chip'></div></td><td id='slot6_row2'><div class='white chip'></div></td></tr><tr><td id='slot0_row3'><div class='white chip'></div></td><td id='slot1_row3'><div class='white chip'></div></td><td id='slot2_row3'><div class='white chip'></div></td><td id='slot3_row3'><div class='white chip'></div></td><td id='slot4_row3'><div class='white chip'></div></td><td id='slot5_row3'><div class='white chip'></div></td><td id='slot6_row3'><div class='white chip'></div></td></tr><tr><td id='slot0_row4'><div class='white chip'></div></td><td id='slot1_row4'><div class='white chip'></div></td><td id='slot2_row4'><div class='white chip'></div></td><td id='slot3_row4'><div class='white chip'></div></td><td id='slot4_row4'><div class='white chip'></div></td><td id='slot5_row4'><div class='white chip'></div></td><td id='slot6_row4'><div class='white chip'></div></td></tr><tr><td id='slot0_row5'><div class='white chip'></div></td><td id='slot1_row5'><div class='white chip'></div></td><td id='slot2_row5'><div class='white chip'></div></td><td id='slot3_row5'><div class='white chip'></div></td><td id='slot4_row5'><div class='white chip'></div></td><td id='slot5_row5'><div class='white chip'></div></td><td id='slot6_row5'><div class='white chip'></div></td></tr></tbody>";
 	 		var buttons = document.getElementsByClassName('insert'); 
 	 		for(var button = 0; button < buttons.length; button++){
 	 			buttons[button].style.pointerEvents = 'auto';
-	 		}
+	 		} 
  		}
  
 		function insert (slot_number) { 
@@ -222,30 +218,27 @@
 		function next(player){
 			turn++; 
 			if(player == 'R'){
-				current_player = players[1]; 
-				document.getElementById('turn').innerHTML = "Turn "+turn+"<br><br><div class='black chip'></div>";
+				current_player = players[1];  
 				select_all.style.cursor = "url(images/black_chip.png) 16 16, auto";
 			}
 			else if(player == 'B'){
-				current_player = players[0];  
-				document.getElementById('turn').innerHTML = "Turn "+turn+"<br><br><div class='red chip'></div>";
+				current_player = players[0];   
 				select_all.style.cursor = "url(images/red_chip.png) 16 16, auto";
 			} 
-			if(turn > 42){ 
-				document.getElementById('turn').innerHTML = "Out Of Chips";
+			if(turn > 42){  
 				document.getElementById('message').innerHTML = "TIE!<br><button onclick='reset()'>reset</button>";
 			}
 		}
 
 		function wins(player){
+			document.getElementById('message').style.display = "block";
 			if(player == 'R'){ 
-				document.getElementById('message').innerHTML = "RED WINS!!<br><button onclick='reset()'>reset</button>";  
+				document.getElementById('message').innerHTML = "RED WINS!!<br><br><div class='reset' onclick='reset()'>reset</div>";  
 			}
 			else if(player == 'B'){
-				document.getElementById('message').innerHTML = "BLACK WINS!!<br><button onclick='reset()'>reset</button>"; 
+				document.getElementById('message').innerHTML = "BLACK WINS!!<br><br><div class='reset' onclick='reset()'>reset</div>"; 
 			}  
-			var buttons = document.getElementsByClassName('insert'); 
-			console.log(buttons);
+			var buttons = document.getElementsByClassName('insert');  
 	 		for(var button = 0; button < buttons.length; button++){
 	 			buttons[button].style.pointerEvents = 'none';
 	 		} 

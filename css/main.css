@@ -1,3 +1,12 @@
+*{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+
 h1{
 	font-size: 40px;
 	font-weight: bold;
@@ -14,40 +23,35 @@ table{
 	margin: 0 auto; 
 	border-spacing: 2.5px;
   border-collapse: separate;
-  background-color: yellow;
-}
-
-table{
+  background-color: #F7E134; 
 	border: 2px solid black; 
 }
-
-thead{
-	background-color: blue;
-}
-
+  
 td{
 	height: 40px;
 	width: 40px;  
-	background-color: yellow;
+	background-color: #F7E134;
 	padding: 0;
 }
 
-#message{
-	/*display: none;*/
-}
-
-.buttons{
-	background-color: white;
-	border: none;
-}
-  
-.arrow-down{  
+#message{    
+	padding: 20px;
+	font-family: garamond;
+	font-weight: bold;
+	text-align: center;
+	display: none;
+}  
+.reset{
+	background-color: #3399FF;
+	color: #222;
+	width: 100px;
+	padding:5px;
+	border-radius: 5px;
 	margin: 0 auto;
-	width: 0; 
-	height: 0;  
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent; 
-	border-top: 10px solid green;
+} 
+.reset:hover{
+	background-color: #99CCFF;
+	color: white;
 }
 
 .chip{
@@ -58,7 +62,7 @@ td{
 }
 
 .red{
-	background-color: red; 
+	background-color: #E4211C; 
 }
 
 .black{
@@ -68,12 +72,19 @@ td{
 .white{
 	background-color: white;
 }
-
+#buttons{
+	background-color: white; 
+	border: none;
+}
+#buttons td{ 
+	height: 0;
+	background-color: white; 
+} 
 .insert{
 	background-color: #BAE8FF; 
 	border-radius: 5px;
-	height: 50px; 
-
+	height: 20px;  
+	width: 40px;
 }
 
 .insert:hover{
@@ -81,10 +92,12 @@ td{
 }
 
 
-footer{  
+footer h5{   
 	font-family: garamond;
-	font-weight: bold;
-	padding: 5px 0 5px 20px;
+	font-weight: bold; 
+	padding: 5px 0 0 20px; 
+	float: right;
+	margin-right: 20px;
 }
 
 
@@ -97,11 +110,15 @@ footer{
 		height: 60px;
 		width: 60px;   
 	}
+	.insert{
+		height: 30px;
+		width: 60px;
+	}
 	.chip{
 		height: 58px;
 		width: 58px;  
 		border: 2px solid black;  
-	}
+	} 
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -112,11 +129,15 @@ footer{
 		height: 80px;
 		width: 80px; 
 	}
+	.insert{
+		height: 30px;
+		width: 80px;
+	}
 	.chip{
 		height: 78px;
 		width: 78px;  
 		border: 2px solid black;  
-	}
+	} 
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -127,9 +148,13 @@ footer{
 		height: 100px;
 		width: 100px;   
 	}
+	.insert{
+		height: 30px;
+		width: 100px;
+	}
 	.chip{
 		height: 98px;
 		width: 98px;
 		border: 2px solid black;    
-	}
+	}  
 }
